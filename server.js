@@ -7,6 +7,10 @@ const cors = require("cors");
 const app = express();
 app.use(cors()); // all cors request enabled
 
+app.get("/", (req, resp) => {
+  resp.send("server: test success");
+});
+
 const http = require("http");
 const { Server } = require("socket.io");
 
@@ -188,10 +192,6 @@ io.on("connection", (socket) => {
         console.log(`Unknown type: ${data.type}`);
     }
   });
-});
-
-server.get("/", (req, resp) => {
-  resp.send("server: test success");
 });
 
 server.listen(PORT, () => {
