@@ -190,6 +190,10 @@ io.on("connection", (socket) => {
   });
 });
 
+server.get("/", (req, resp) => {
+  resp.send("server: test success");
+});
+
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);
 });
